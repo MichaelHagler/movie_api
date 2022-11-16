@@ -30,6 +30,30 @@
       <td>None</td>
       <td>A JSON object holding data about all movies</td>
     </tr>
+    <tr>
+      <td>Get data about a single movie by title</td>
+      <td>/movies/[Name]</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about a single movie, containing
+        genra and director.
+      </td>
+    </tr>
+    <tr>
+      <td>Add a movie</td>
+      <td>/movies</td>
+      <td>POST</td>
+      <td>A JSON object holding data about the movie</td>
+      <td>A JSON object holding data about the movie that was added</td>
+    </tr>
+    <tr>
+      <td>Remove a movie by title</td>
+      <td>/movies/[title]</td>
+      <td>DELETE</td>
+      <td>None</td>
+      <td>A text message indicating whether the movie was successfully
+        removed.
+      </td>
   </table>
   
 </body>
