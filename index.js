@@ -17,60 +17,93 @@ app.use(morgan("common"));
 // array of 10 favorite movies
 let movies = [
   {
-    Title: "Avatar",
-    Director: "James Cameron",
-    Genre: "Sci-Fi"
+    "Title": "Avatar",
+    "Director": "James Cameron",
+    "Genre": {
+      "Name": "Sci-Fi"
+    }
   },
   {
-    Title: "Star Wars: Episode V",
-    Director: "Irvin Kershner",
-    Genre: "Sci-Fi"
+    "Title": "Star Wars: Episode V",
+    "Director": "Irvin Kershner",
+    "Genre": {
+      "Name": "Sci-Fi"
+    }
   },
   {
-    Title: "A Knight's Tale",
-    Director: "Brian Helgeland",
-    Genre: "Action-Comedy"
+    "Title": "A Knight's Tale",
+    "Director": "Brian Helgeland",
+    "Genre": {
+      "Name": "Comdey"
+    }
   },
   {
-    Title: "Wayne's World",
-    Director: "Penelope Spheeris",
-    Genre: "Comedy"
+    "Title": "Wayne's World",
+    "Director": "Penelope Spheeris",
+    "Genre": {
+      "Name": "Comedy"
+    }
   },
   {
-    Title: "Aliens",
-    Director: "James Cameron",
-    Genre: "Thriller"
+    "Title": "Aliens",
+    "Director": "James Cameron",
+    "Genre": {
+      "Name": "Thriller"
+    }
   },
   {
-    Title: "Robin Hood: Prince of Thieves",
-    Director: "Kevin Reynolds",
-    Genre: "Action"
+    "Title": "Robin Hood: Prince of Thieves",
+    "Director": "Kevin Reynolds",
+    "Genre": {
+      "Name": "Action"
+    }
   },
   {
-    Title: "Yes Man",
-    Director: "Peyton Reed",
-    Genre: "Comedy"
+    "Title": "Yes Man",
+    "Director": "Peyton Reed",
+    "Genre": {
+      "Name": "Comedy"
+    }
   },
   {
-    Title: "The Lord of the Rings",
-    Director: "Peter Jackson",
-    Genre: "Fantasy"
+    "Title": "The Lord of the Rings",
+    "Director": "Peter Jackson",
+    "Genre": {
+      "Name": "Fantasy"
+    }
   },
   {
-    Title: "Major Payne",
-    Director: "Nick Castle",
-    Genre: "Comedy"
+    "Title": "Major Payne",
+    "Director": "Nick Castle",
+    "Genre": {
+      "Name": "Comedy"
+    }
   },
   {
-    Title: "Batman: The Dark Knight",
-    Director: "Christopher Nolan",
-    Genre: "Action"
+    "Title": "Batman: The Dark Knight",
+    "Director": "Christopher Nolan",
+    "Genre": {
+      "Name": "Action"
+    }
   }
 ];
 
 let users =[
 
 ];
+
+//CREATE user
+app.post("/users", (req, res) => {
+  const newUser = req.body;
+
+  if (newUser.name) {
+    newUser.id = uuid.v4();
+    users.push(newUser);
+    res.status(201).json(newUser);
+  } else {
+    res.status(400).send("users need names");
+  }
+});
 
 // GET requests
 app.get("/", (req, res) => {
@@ -95,14 +128,26 @@ app.get("/movies/:title", (req, res) => {
 });
 
 //READ get movie by genre
-app.get("/movies/:title/:name", (req, res) => {
-  const { genre } = req.params;
-  const movie = movies.find( movie => movie.Genra === genre );
+app.get("/movies/genre/:genreName", (req, res) => {
+  const { genreName } = req.params;
+  const genre = movies.find( movie => movie.Genre.Name === genreName ).Genre;
 
-  if (movie) {
-    res.status(200).json(movie);
+  if (genre) {
+    res.status(200).json(genre);
   } else {
-    res.status(400).send("no such movie.");
+    res.status(400).send("no such genre.");
+  }
+});
+
+//READ get director by name
+app.get("/movies/Director/:directorName", (req, res) => {
+  const { directorName } = req.params;
+  const director = movies.find( movie => movie.Director === directorName ).Director;
+
+  if (director) {
+    res.status(200).json(director);
+  } else {
+    res.status(400).send("no such director.");
   }
 });
 
