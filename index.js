@@ -1,6 +1,11 @@
 //express
-const express = require("express");
-const app = express();
+const express = require("express"),
+  app = express(),
+  bodyParser = require("body-parser"),
+  uuid = require("uuid");
+
+
+app.use(bodyParser.json());
 app.use(express.static("public"));
 
 //morgan to log all requests
@@ -10,57 +15,95 @@ app.use(morgan("common"));
 
 
 // array of 10 favorite movies
-let topMovies = [
+let movies = [
   {
-    title: "Avatar",
-    director: "James Cameron"
+    Title: "Avatar",
+    Director: "James Cameron",
+    Genre: "Sci-Fi"
   },
   {
-    title: "Star Wars: Episode V",
-    director: "Irvin Kershner"
+    Title: "Star Wars: Episode V",
+    Director: "Irvin Kershner",
+    Genre: "Sci-Fi"
   },
   {
-    title: "A Knight's Tale",
-    director: "Brian Helgeland"
+    Title: "A Knight's Tale",
+    Director: "Brian Helgeland",
+    Genre: "Action-Comedy"
   },
   {
-    title: "Wayne's World",
-    director: "Penelope Spheeris"
+    Title: "Wayne's World",
+    Director: "Penelope Spheeris",
+    Genre: "Comedy"
   },
   {
-    title: "Aliens",
-    director: "James Cameron"
+    Title: "Aliens",
+    Director: "James Cameron",
+    Genre: "Thriller"
   },
   {
-    title: "Robin Hood: Prince of Thieves",
-    director: "Kevin Reynolds"
+    Title: "Robin Hood: Prince of Thieves",
+    Director: "Kevin Reynolds",
+    Genre: "Action"
   },
   {
-    title: "Yes Man",
-    director: "Peyton Reed"
+    Title: "Yes Man",
+    Director: "Peyton Reed",
+    Genre: "Comedy"
   },
   {
-    title: "The Lord of the Rings",
-    director: "Peter Jackson"
+    Title: "The Lord of the Rings",
+    Director: "Peter Jackson",
+    Genre: "Fantasy"
   },
   {
-    title: "Major Payne",
-    director: "Nick Castle"
+    Title: "Major Payne",
+    Director: "Nick Castle",
+    Genre: "Comedy"
   },
   {
-    title: "Batman: The Dark Knight",
-    director: "Christopher Nolan"
+    Title: "Batman: The Dark Knight",
+    Director: "Christopher Nolan",
+    Genre: "Action"
   }
+];
+
+let users =[
+
 ];
 
 // GET requests
 app.get("/", (req, res) => {
-  res.send("Welcome to MyFlix!");
+  res.status(200).send("Welcome to MyFlix!");
 });
 
-
+// READ get all movies
 app.get("/movies", (req, res) => {
-  res.json(topMovies);
+  res.status(200).json(movies);
+});
+
+// READ get movie by title
+app.get("/movies/:title", (req, res) => {
+  const { title } = req.params;
+  const movie = movies.find( movie => movie.Title === title );
+
+  if (movie) {
+    res.status(200).json(movie);
+  } else {
+    res.status(400).send("no such movie.");
+  }
+});
+
+//READ get movie by genre
+app.get("/movies/:title/:name", (req, res) => {
+  const { genre } = req.params;
+  const movie = movies.find( movie => movie.Genra === genre );
+
+  if (movie) {
+    res.status(200).json(movie);
+  } else {
+    res.status(400).send("no such movie.");
+  }
 });
 
 //error handling 
