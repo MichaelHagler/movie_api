@@ -18,72 +18,122 @@ app.use(morgan("common"));
 let movies = [
   {
     "Title": "Avatar",
-    "Director": "James Cameron",
+    "Director": {
+      "Name": "James Cameron",
+      "Birth": "1954-present",
+      "Bio": "James Cameron is a filmmaker from Canada. He has made many popular Sci-Fi films"
+    },
     "Genre": {
-      "Name": "Sci-Fi"
+      "Name": "Sci-Fi",
+      "Discription": "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas."
     }
   },
   {
     "Title": "Star Wars: Episode V",
-    "Director": "Irvin Kershner",
+    "Director": {
+      "Name": "Irvin Kershner",
+      "Birth": "1923-2010",
+      "Bio": "Irvin was a director, actor, producer, and an instructor at USC."
+    },
     "Genre": {
-      "Name": "Sci-Fi"
+      "Name": "Sci-Fi",
+      "Discription": "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas."
     }
   },
   {
     "Title": "A Knight's Tale",
-    "Director": "Brian Helgeland",
+    "Director": {
+      "Name": "Brian Helgeland",
+      "Birth": "1961-present",
+      "Bio": "Brian recieve an Academy Award and Razzie in the same year. He directed popular horror films like Freddy Krueger and A nightmare of Elm Street 4: The Dream Master."
+    },
     "Genre": {
-      "Name": "Comdey"
+      "Name": "Comdey",
+      "Discription": "A comedy is designed to be funny."
     }
   },
   {
     "Title": "Wayne's World",
-    "Director": "Penelope Spheeris",
+    "Director": {
+      "Name": "Penelope Spheeris",
+      "Birth": "1945-present",
+      "Bio":"Spheeris earn a Grammy Award nomination for her work in Wayn's World which was also her highest grossing film.",
+    },
     "Genre": {
-      "Name": "Comedy"
+      "Name": "Comedy",
+      "Discription": "A comedy is designed to be funny."
     }
   },
   {
     "Title": "Aliens",
-    "Director": "James Cameron",
+    "Director": {
+      "Name": "James Cameron",
+      "Birth": "1954-present",
+      "Bio": "James Cameron is a filmmaker from Canada. He has made many popular Sci-Fi films"
+    },
     "Genre": {
-      "Name": "Thriller"
+      "Name": "Thriller",
+      "Discription": "Thrillers invoke feelings of suspense, anticiation, and anxiety."
     }
   },
   {
     "Title": "Robin Hood: Prince of Thieves",
-    "Director": "Kevin Reynolds",
+    "Director": {
+      "Name": "Kevin Reynolds",
+      "Birth": "1952-present",
+      "Bio": "Reynolds started his career by co-writing Red Dawn in 1984, and gave Samuel L. Jackson his first role in One Eight Seven."
+    },
     "Genre": {
-      "Name": "Action"
+      "Name": "Action",
+      "Discription": "Action usually has events that include violence and distruction."
     }
   },
   {
     "Title": "Yes Man",
-    "Director": "Peyton Reed",
+    "Director": {
+      "Name": "Peyton Reed",
+      "Birth": "1964-present",
+      "Bio": "Reed's first director roll was for Bring it on and more recently directed Ant-Man and the Wasp."
+    },
     "Genre": {
-      "Name": "Comedy"
+      "Name": "Comedy",
+      "Discription": "A comedy is designed to be funny."
     }
   },
   {
     "Title": "The Lord of the Rings",
-    "Director": "Peter Jackson",
+    "Director": {
+      "Name": "Sir Peter Jackson",
+      "Birth": "1961-present",
+      "Bio": "Sir Peter Jackson best known work is The Lord of the Rings. He was knighted in 2002 by Sir Anand Satyanand."
+    },
     "Genre": {
-      "Name": "Fantasy"
+      "Name": "Fantasy",
+      "Discription": "Fantasy usually depicts mythology and folklore with magic."
     }
   },
   {
     "Title": "Major Payne",
-    "Director": "Nick Castle",
+    "Director": {
+      "Name": "Nick Castle",
+      "Birth": "1947-present",
+      "Bio": "Castle is known for playing as Michael Myers in the 1978 Halloween movie."
+    },
     "Genre": {
-      "Name": "Comedy"
+      "Name": "Comedy",
+      "Discription": "A comedy is designed to be funny."
     }
   },
   {
-    "Title": "Batman: The Dark Knight",
-    "Director": "Christopher Nolan",
+    "Title": "Batman: the Dark Knight Trilogy",
+    "Director": {
+      "Name": "Christopher Nolan",
+      "Birth": "1970-present",
+      "Bio": "Nolan is a well known director that was won many awards. Some of his recent works is Dunkirk, Intersteller, and Inception."
+    },
     "Genre": {
-      "Name": "Action"
+      "Name": "Action",
+      "Discription": "Action usually has events that include violence and distruction."
     }
   }
 ];
