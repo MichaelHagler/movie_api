@@ -89,6 +89,18 @@ let movies = [
 ];
 
 let users =[
+  {
+    id: 1,
+    name: "Mary",
+    favoriteMovies: []
+  },
+  {
+    id: 2,
+    name: "John",
+    favoriteMovies: [
+      "The Fountain"
+    ]
+  }
 
 ];
 
@@ -104,6 +116,38 @@ app.post("/users", (req, res) => {
     res.status(400).send("users need names");
   }
 });
+
+//CREATE add movies to users list
+app.post("/users/:id/:movieTitle", (req, res) => {
+  const { id, movieTitle } = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    user.favoriteMovies.push(movieTitle);
+    res.status(200).send(`${movieTitle} has been added to user ${id}'s array.`);
+  } else {
+    res.status(400).send("no such user");
+  }
+});
+
+//UPDATE
+app.put("/users/:id", (req, res) => {
+  const { id } = req.params;
+  const updatedUser = req.body;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    user.name = updatedUser.name;
+    res.status(200).json(user);
+  } else {
+    res.status(400).send("no such user");
+  }
+});
+
+
+
 
 // GET requests
 app.get("/", (req, res) => {
@@ -148,6 +192,34 @@ app.get("/movies/Director/:directorName", (req, res) => {
     res.status(200).json(director);
   } else {
     res.status(400).send("no such director.");
+  }
+});
+
+//DELETE movies from user's list
+app.delete("/users/:id/:movieTitle", (req, res) => {
+  const { id, movieTitle } = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    user.favoriteMovies = user.favoriteMovies.filter( title => title !== movieTitle);
+    res.status(200).send(`${movieTitle} has been removed from user ${id}'s array.`);
+  } else {
+    res.status(400).send("no such user");
+  }
+});
+
+//DELETE user accounts
+app.delete("/users/:id", (req, res) => {
+  const { id } = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    users = users.filter( user => user.id != id);
+    res.status(200).send(`user ${id} has been deleted.`);
+  } else {
+    res.status(400).send("no such user");
   }
 });
 
