@@ -32,28 +32,60 @@
     </tr>
     <tr>
       <td>Get data about a single movie by title</td>
-      <td>/movies/[Name]</td>
+      <td>/movies/:title</td>
       <td>GET</td>
       <td>None</td>
       <td>A JSON object holding data about a single movie, containing
-        genra and director.
+        genre and director
       </td>
     </tr>
     <tr>
-      <td>Add a movie</td>
-      <td>/movies</td>
-      <td>POST</td>
-      <td>A JSON object holding data about the movie</td>
-      <td>A JSON object holding data about the movie that was added</td>
+      <td>Get data about a genre</td>
+      <td>/movies/genre/:genreName</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about a single genre</td>
     </tr>
     <tr>
-      <td>Remove a movie by title</td>
-      <td>/movies/[title]</td>
+      <td>Get data about a single director</td>
+      <td>/movies/Director/:directorName</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about a director</td>
+    </tr>
+    <tr>
+      <td>Add a user</td>
+      <td>/users</td>
+      <td>POST</td>
+      <td>A JSON object user name, and favorite movies. uuid asigned to user</td>
+      <td>A JSON object holding data about the user</td>
+    </tr>
+    <tr>
+      <td>Add a movie to user's list</td>
+      <td>/users/:id/:movieTitle</td>
+      <td>POST</td>
+      <td>A JSON object holding data with the movie title</td>
+      <td>A text message stating that the movie has been added to user's list</td>
+    </tr>
+    <tr>
+      <td>update user</td>
+      <td>/users/:id</td>
+      <td>PUT</td>
+      <td>None</td>
+      <td>A JSON oject holding the updated user's info</td>
+    </tr>
+    <tr>
+      <td>Remove a movie by title from user's list</td>
+      <td>/users/:id/:movieTitle</td>
       <td>DELETE</td>
       <td>None</td>
-      <td>A text message indicating whether the movie was successfully
-        removed.
-      </td>
+      <td>A text message indicating the movie was successfully removed</td>
+      <tr>
+        <td>Remove user</td>
+        <td>/users/:id</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message indicating the user has been removed</td>
   </table>
   
 </body>

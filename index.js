@@ -146,9 +146,6 @@ app.put("/users/:id", (req, res) => {
   }
 });
 
-
-
-
 // GET requests
 app.get("/", (req, res) => {
   res.status(200).send("Welcome to MyFlix!");
