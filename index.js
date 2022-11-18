@@ -28,7 +28,7 @@ let movies = [
       "Discription": "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas."
     },
     "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FAvatar-14X20-Original-Poster-Cameron%2Fdp%2FB00BLRFZ2E&psig=AOvVaw0qG52VxcbrykG26_nB_NMD&ust=1668880363758000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLiZgPyluPsCFQAAAAAdAAAAABAE",
-    "Features": False
+    "Features": false
   },
   {
     "Title": "Star Wars: Episode V",
@@ -42,7 +42,7 @@ let movies = [
       "Discription": "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas."
     },
     "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.movieposters.com%2Fproducts%2Fstar-wars-episode-v-the-empire-strikes-back-mpw-91057&psig=AOvVaw0GSFvTHO-R-u_gEYrBoEnF&ust=1668880446653000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKDbyKOmuPsCFQAAAAAdAAAAABAF",
-    "Features": False
+    "Features": false
   },
   {
     "Title": "A Knight's Tale",
@@ -56,7 +56,7 @@ let movies = [
       "Discription": "A comedy is designed to be funny."
     },
     "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FKnights-Tale-POSTER-Movie-Inches%2Fdp%2FB00KK6JCAI&psig=AOvVaw2_eOQXL0YBK3l8rhxURUJx&ust=1668880477112000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCJD2-LGmuPsCFQAAAAAdAAAAABAE",
-    "Features": False
+    "Features": false
   },
   {
     "Title": "Wayne's World",
@@ -70,7 +70,7 @@ let movies = [
       "Discription": "A comedy is designed to be funny."
     },
     "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FWaynes-World-Movie-Poster-11x17%2Fdp%2FB00K0JPZ6K&psig=AOvVaw2kPZ7UysZN9LxZhPeeqsDC&ust=1668880493968000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLj_nrqmuPsCFQAAAAAdAAAAABAE",
-    "Features": False
+    "Features": false
   },
   {
     "Title": "Aliens",
@@ -84,7 +84,7 @@ let movies = [
       "Discription": "Thrillers invoke feelings of suspense, anticiation, and anxiety."
     },
     "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FAliens-Movie-Poster-24-x36%2Fdp%2FB011D4O4H6&psig=AOvVaw1llmCPfjNUSzmk6mjlNkVq&ust=1668880506969000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLjVmsCmuPsCFQAAAAAdAAAAABAE",
-    "Features": False
+    "Features": false
   },
   {
     "Title": "Robin Hood: Prince of Thieves",
@@ -98,7 +98,7 @@ let movies = [
       "Discription": "Action usually has events that include violence and distruction."
     },
     "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FPrince-Thieves-Poster-Costner-Freeman%2Fdp%2FB000KA5YAQ&psig=AOvVaw13arFsQOETd_dlHffzCmYL&ust=1668880525726000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKCYlsmmuPsCFQAAAAAdAAAAABAE",
-    "Features": False
+    "Features": false
   },
   {
     "Title": "Yes Man",
@@ -112,7 +112,7 @@ let movies = [
       "Discription": "A comedy is designed to be funny."
     },
     "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.allposters.com%2F-sp%2FYes-Man-Posters_i8031466_.htm&psig=AOvVaw3WXOOdxIGCoVkoGHSAqEbO&ust=1668880541149000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLC7udCmuPsCFQAAAAAdAAAAABAE",
-    "Features": False
+    "Features": false
   },
   {
     "Title": "The Lord of the Rings",
@@ -126,7 +126,7 @@ let movies = [
       "Discription": "Fantasy usually depicts mythology and folklore with magic."
     },
     "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FLord-Rings-Movie-Poster-24x36%2Fdp%2FB07D96K2QK&psig=AOvVaw1Qb5ubswai_RF4Lb2rMnOY&ust=1668880564660000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCODH4tumuPsCFQAAAAAdAAAAABAE",
-    "Features": False
+    "Features": false
   },
   {
     "Title": "Major Payne",
@@ -140,7 +140,7 @@ let movies = [
       "Discription": "A comedy is designed to be funny."
     },
     "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2F27-Major-Payne-Movie-Poster%2Fdp%2FB002CT75WS&psig=AOvVaw2Sc9R2DJP5tCR0qzuSlmM-&ust=1668880581576000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCPDQ4eOmuPsCFQAAAAAdAAAAABAE",
-    "Features": False
+    "Features": false
   },
   {
     "Title": "Batman: the Dark Knight Trilogy",
@@ -154,7 +154,7 @@ let movies = [
       "Discription": "Action usually has events that include violence and distruction."
     },
     "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FBATMAN-BEGINS-ORIGINAL-Version-CHRISTIAN%2Fdp%2FB00B65USAK&psig=AOvVaw3EfTGbYrW3ph8F_3t6DB36&ust=1668880597854000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCIjnv-umuPsCFQAAAAAdAAAAABAE",
-    "Features": False
+    "Features": false
   }
 ];
 
@@ -251,9 +251,9 @@ app.get("/movies/genre/:genreName", (req, res) => {
 });
 
 //READ get director by name
-app.get("/movies/Director/:directorName", (req, res) => {
+app.get("/movies/director/:directorName", (req, res) => {
   const { directorName } = req.params;
-  const director = movies.find( movie => movie.Director === directorName ).Director;
+  const director = movies.find( movie => movie.Director.Name === directorName ).Director;
 
   if (director) {
     res.status(200).json(director);
