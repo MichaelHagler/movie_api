@@ -25,10 +25,10 @@ let movies = [
     },
     "Genre": {
       "Name": "Sci-Fi",
-      "Discription": "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas."
+      "Description": "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas."
     },
-    "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FAvatar-14X20-Original-Poster-Cameron%2Fdp%2FB00BLRFZ2E&psig=AOvVaw0qG52VxcbrykG26_nB_NMD&ust=1668880363758000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLiZgPyluPsCFQAAAAAdAAAAABAE",
-    "Features": false
+    "imageURL":"https://www.imdb.com/title/tt0499549/mediaviewer/rm371527425/?ref_=tt_ov_i",
+    "Features": true
   },
   {
     "Title": "Star Wars: Episode V",
@@ -39,10 +39,10 @@ let movies = [
     },
     "Genre": {
       "Name": "Sci-Fi",
-      "Discription": "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas."
+      "Description": "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas."
     },
-    "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.movieposters.com%2Fproducts%2Fstar-wars-episode-v-the-empire-strikes-back-mpw-91057&psig=AOvVaw0GSFvTHO-R-u_gEYrBoEnF&ust=1668880446653000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKDbyKOmuPsCFQAAAAAdAAAAABAF",
-    "Features": false
+    "imageURL":"https://www.imdb.com/title/tt0080684/mediaviewer/rm3114097664/?ref_=tt_ov_i",
+    "Features": true
   },
   {
     "Title": "A Knight's Tale",
@@ -53,10 +53,10 @@ let movies = [
     },
     "Genre": {
       "Name": "Comdey",
-      "Discription": "A comedy is designed to be funny."
+      "Description": "A comedy is designed to be funny."
     },
-    "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FKnights-Tale-POSTER-Movie-Inches%2Fdp%2FB00KK6JCAI&psig=AOvVaw2_eOQXL0YBK3l8rhxURUJx&ust=1668880477112000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCJD2-LGmuPsCFQAAAAAdAAAAABAE",
-    "Features": false
+    "imageURL":"https://www.imdb.com/title/tt0183790/mediaviewer/rm3970210048/?ref_=tt_ov_i",
+    "Features": true
   },
   {
     "Title": "Wayne's World",
@@ -67,10 +67,10 @@ let movies = [
     },
     "Genre": {
       "Name": "Comedy",
-      "Discription": "A comedy is designed to be funny."
+      "Description": "A comedy is designed to be funny."
     },
-    "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FWaynes-World-Movie-Poster-11x17%2Fdp%2FB00K0JPZ6K&psig=AOvVaw2kPZ7UysZN9LxZhPeeqsDC&ust=1668880493968000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLj_nrqmuPsCFQAAAAAdAAAAABAE",
-    "Features": false
+    "imageURL":"https://www.imdb.com/title/tt0105793/mediaviewer/rm3693806848/?ref_=tt_ov_i",
+    "Features": true
   },
   {
     "Title": "Aliens",
@@ -81,10 +81,10 @@ let movies = [
     },
     "Genre": {
       "Name": "Thriller",
-      "Discription": "Thrillers invoke feelings of suspense, anticiation, and anxiety."
+      "Description": "Thrillers invoke feelings of suspense, anticiation, and anxiety."
     },
-    "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FAliens-Movie-Poster-24-x36%2Fdp%2FB011D4O4H6&psig=AOvVaw1llmCPfjNUSzmk6mjlNkVq&ust=1668880506969000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLjVmsCmuPsCFQAAAAAdAAAAABAE",
-    "Features": false
+    "imageURL":"https://www.imdb.com/title/tt0090605/mediaviewer/rm490960896/?ref_=tt_ov_i",
+    "Features": true
   },
   {
     "Title": "Robin Hood: Prince of Thieves",
@@ -95,10 +95,10 @@ let movies = [
     },
     "Genre": {
       "Name": "Action",
-      "Discription": "Action usually has events that include violence and distruction."
+      "Description": "Action usually has events that include violence and distruction."
     },
-    "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FPrince-Thieves-Poster-Costner-Freeman%2Fdp%2FB000KA5YAQ&psig=AOvVaw13arFsQOETd_dlHffzCmYL&ust=1668880525726000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKCYlsmmuPsCFQAAAAAdAAAAABAE",
-    "Features": false
+    "imageURL":"https://www.imdb.com/title/tt0102798/mediaviewer/rm1060182529/?ref_=tt_ov_i",
+    "Features": true
   },
   {
     "Title": "Yes Man",
@@ -109,10 +109,10 @@ let movies = [
     },
     "Genre": {
       "Name": "Comedy",
-      "Discription": "A comedy is designed to be funny."
+      "Description": "A comedy is designed to be funny."
     },
-    "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.allposters.com%2F-sp%2FYes-Man-Posters_i8031466_.htm&psig=AOvVaw3WXOOdxIGCoVkoGHSAqEbO&ust=1668880541149000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLC7udCmuPsCFQAAAAAdAAAAABAE",
-    "Features": false
+    "imageURL":"https://www.imdb.com/title/tt1068680/mediaviewer/rm359602176/?ref_=tt_ov_i",
+    "Features": true
   },
   {
     "Title": "The Lord of the Rings",
@@ -123,10 +123,10 @@ let movies = [
     },
     "Genre": {
       "Name": "Fantasy",
-      "Discription": "Fantasy usually depicts mythology and folklore with magic."
+      "Description": "Fantasy usually depicts mythology and folklore with magic."
     },
-    "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FLord-Rings-Movie-Poster-24x36%2Fdp%2FB07D96K2QK&psig=AOvVaw1Qb5ubswai_RF4Lb2rMnOY&ust=1668880564660000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCODH4tumuPsCFQAAAAAdAAAAABAE",
-    "Features": false
+    "imageURL":"https://www.imdb.com/title/tt0167260/mediaviewer/rm584928512/?ref_=tt_ov_i",
+    "Features": true
   },
   {
     "Title": "Major Payne",
@@ -137,10 +137,10 @@ let movies = [
     },
     "Genre": {
       "Name": "Comedy",
-      "Discription": "A comedy is designed to be funny."
+      "Description": "A comedy is designed to be funny."
     },
-    "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2F27-Major-Payne-Movie-Poster%2Fdp%2FB002CT75WS&psig=AOvVaw2Sc9R2DJP5tCR0qzuSlmM-&ust=1668880581576000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCPDQ4eOmuPsCFQAAAAAdAAAAABAE",
-    "Features": false
+    "imageURL":"https://www.imdb.com/title/tt0110443/mediaviewer/rm991907584/?ref_=tt_ov_i",
+    "Features": true
   },
   {
     "Title": "Batman: the Dark Knight Trilogy",
@@ -151,10 +151,10 @@ let movies = [
     },
     "Genre": {
       "Name": "Action",
-      "Discription": "Action usually has events that include violence and distruction."
+      "Description": "Action usually has events that include violence and distruction."
     },
-    "imageURL":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FBATMAN-BEGINS-ORIGINAL-Version-CHRISTIAN%2Fdp%2FB00B65USAK&psig=AOvVaw3EfTGbYrW3ph8F_3t6DB36&ust=1668880597854000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCIjnv-umuPsCFQAAAAAdAAAAABAE",
-    "Features": false
+    "imageURL":"https://www.imdb.com/title/tt0372784/mediaviewer/rm2827249920/?ref_=tt_ov_i",
+    "Features": true
   }
 ];
 
