@@ -11,6 +11,7 @@ app.use(express.static("public"));
 
 //morgan to log all requests
 const morgan = require("morgan");
+const { User } = require("./models");
 
 app.use(morgan("common"));
 
@@ -177,7 +178,7 @@ let users =[
 
 //CREATE user
 app.post("/users", (req, res) => {
-  users.findOne({ Username: req.body.Username })
+  Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
         return res.status(400).send(req.body.Username + "already exists");
@@ -275,6 +276,30 @@ app.get("/movies/director/:directorName", (req, res) => {
   } else {
     res.status(400).send("no such director.");
   }
+});
+
+//GET all users
+app.get("/users", (req, res) => {
+  Users.find()
+    .then((users) => {
+      res.status(201).json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
+});
+
+//GET user by username
+app.get("/users/:Username", (req, res) => {
+  User.findOne({ Username: req.params.Username })
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
 });
 
 //DELETE movies from user's list
