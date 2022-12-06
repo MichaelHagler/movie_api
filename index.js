@@ -6,6 +6,7 @@ const express = require("express"),
 
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 //morgan to log all requests
