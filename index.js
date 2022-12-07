@@ -205,27 +205,26 @@ app.get("/movies", (req, res) => {
 });
 
 // READ get movie by title
-app.get("/movies/:title", (req, res) => {
-  const { title } = req.params;
-  const movie = movies.find( movie => movie.Title === title );
-
-  if (movie) {
-    res.status(200).json(movie);
-  } else {
-    res.status(400).send("no such movie.");
-  }
+app.get("/movies/:Title", (req, res) => {
+  Movies.findOne({ Title: req.params.Title })
+    .then((movies) => {
+      res.json(movie);
+    })
+    .catch((erro) => {
+      res.status(500).send("Error: " + err);
+    });
 });
 
 //READ get movie by genre
 app.get("/movies/genre/:genreName", (req, res) => {
-  const { genreName } = req.params;
-  const genre = movies.find( movie => movie.Genre.Name === genreName ).Genre;
-
-  if (genre) {
-    res.status(200).json(genre);
-  } else {
-    res.status(400).send("no such genre.");
-  }
+  Genres.findOne({ Name: req.params.Name })
+    .then((genre) => {
+      res.json(genre.Description);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
 });
 
 //READ get director by name
