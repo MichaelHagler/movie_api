@@ -210,7 +210,7 @@ app.get("/movies/:Title", (req, res) => {
     .then((movies) => {
       res.json(movie);
     })
-    .catch((erro) => {
+    .catch((err) => {
       res.status(500).send("Error: " + err);
     });
 });
@@ -296,7 +296,7 @@ app.get("/users", (req, res) => {
 
 //GET user by username
 app.get("/users/:Username", (req, res) => {
-  User.findOne({ Username: req.params.Username })
+  Users.findOne({ Username: req.params.Username })
     .then((user) => {
       res.json(user);
     })
@@ -307,32 +307,43 @@ app.get("/users/:Username", (req, res) => {
 });
 
 //UPDATE
-app.put("/users/:id", (req, res) => {
-  const { id } = req.params;
-  const updatedUser = req.body;
-
-  let user = users.find(user => user.id == id);
-
-  if (user) {
-    user.name = updatedUser.name;
-    res.status(200).json(user);
-  } else {
-    res.status(400).send("no such user");
+app.put("/users/:Username", (req, res) => {
+ Users.findOneAndUpdate(
+  { Usrname: req.params.Username },
+  {
+    $set: {
+      Username: req.body.Username,
+            Password: req.body.Password,
+            Email: req.body.Email,
+            Birthday: req.body.Birthday,
+    },
+  },
+  { new: true },
+  (err, updatedUser) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error " + err);
+    } else {
+      res.json(updatedUser);
+    }
   }
+ );
 });
 
 //DELETE movies from user's list
-app.delete("/users/:id/:movieTitle", (req, res) => {
-  const { id, movieTitle } = req.params;
-
-  let user = users.find(user => user.id == id);
-
-  if (user) {
-    user.favoriteMovies = user.favoriteMovies.filter( title => title !== movieTitle);
-    res.status(200).send(`${movieTitle} has been removed from user ${id}'s array.`);
-  } else {
-    res.status(400).send("no such user");
-  }
+app.delete("/users/:Username", (req, res) => {
+  Models.User.findOneAndRemove({ Username: req.params.Username })
+    .then((user) => {
+      if (!user) {
+        res.status(400).send(req.params.Username + " was not found");
+      } else {
+        res.status(200).send(req.params.Username + " was deleted.");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
 });
 
 //DELETE user accounts
