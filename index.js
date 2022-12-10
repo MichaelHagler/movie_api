@@ -13,8 +13,8 @@ const Users = Models.User;
 const Genres = Models.Genre;
 const Directors = Models.Director;
 
-mongoose.connect("mongodb://localhost:27017/test", {
-  userNewUrlParser: true,
+mongoose.connect("mongodb://127.0.0.1:27017/test", {
+  useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
@@ -24,165 +24,176 @@ app.use(express.static("public"));
 
 app.use(morgan("common"));
 
-
 // array of 10 favorite movies
 let movies = [
   {
-    "Title": "Avatar",
-    "Director": {
-      "Name": "James Cameron",
-      "Birth": "1954-present",
-      "Bio": "James Cameron is a filmmaker from Canada. He has made many popular Sci-Fi films"
+    Title: "Avatar",
+    Director: {
+      Name: "James Cameron",
+      Birth: "1954-present",
+      Bio: "James Cameron is a filmmaker from Canada. He has made many popular Sci-Fi films",
     },
-    "Genre": {
-      "Name": "Sci-Fi",
-      "Description": "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas."
+    Genre: {
+      Name: "Sci-Fi",
+      Description:
+        "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas.",
     },
-    "imageURL":"https://www.imdb.com/title/tt0499549/mediaviewer/rm371527425/?ref_=tt_ov_i",
-    "Features": true
+    imageURL:
+      "https://www.imdb.com/title/tt0499549/mediaviewer/rm371527425/?ref_=tt_ov_i",
+    Features: true,
   },
   {
-    "Title": "Star Wars: Episode V",
-    "Director": {
-      "Name": "Irvin Kershner",
-      "Birth": "1923-2010",
-      "Bio": "Irvin was a director, actor, producer, and an instructor at USC."
+    Title: "Star Wars: Episode V",
+    Director: {
+      Name: "Irvin Kershner",
+      Birth: "1923-2010",
+      Bio: "Irvin was a director, actor, producer, and an instructor at USC.",
     },
-    "Genre": {
-      "Name": "Sci-Fi",
-      "Description": "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas."
+    Genre: {
+      Name: "Sci-Fi",
+      Description:
+        "Short for Science Fiction, Sci-Fi, is a genre that usually depicts futuristic settings or ideas.",
     },
-    "imageURL":"https://www.imdb.com/title/tt0080684/mediaviewer/rm3114097664/?ref_=tt_ov_i",
-    "Features": true
+    imageURL:
+      "https://www.imdb.com/title/tt0080684/mediaviewer/rm3114097664/?ref_=tt_ov_i",
+    Features: true,
   },
   {
-    "Title": "A Knight's Tale",
-    "Director": {
-      "Name": "Brian Helgeland",
-      "Birth": "1961-present",
-      "Bio": "Brian recieve an Academy Award and Razzie in the same year. He directed popular horror films like Freddy Krueger and A nightmare of Elm Street 4: The Dream Master."
+    Title: "A Knight's Tale",
+    Director: {
+      Name: "Brian Helgeland",
+      Birth: "1961-present",
+      Bio: "Brian recieve an Academy Award and Razzie in the same year. He directed popular horror films like Freddy Krueger and A nightmare of Elm Street 4: The Dream Master.",
     },
-    "Genre": {
-      "Name": "Comdey",
-      "Description": "A comedy is designed to be funny."
+    Genre: {
+      Name: "Comdey",
+      Description: "A comedy is designed to be funny.",
     },
-    "imageURL":"https://www.imdb.com/title/tt0183790/mediaviewer/rm3970210048/?ref_=tt_ov_i",
-    "Features": true
+    imageURL:
+      "https://www.imdb.com/title/tt0183790/mediaviewer/rm3970210048/?ref_=tt_ov_i",
+    Features: true,
   },
   {
-    "Title": "Wayne's World",
-    "Director": {
-      "Name": "Penelope Spheeris",
-      "Birth": "1945-present",
-      "Bio":"Spheeris earn a Grammy Award nomination for her work in Wayn's World which was also her highest grossing film.",
+    Title: "Wayne's World",
+    Director: {
+      Name: "Penelope Spheeris",
+      Birth: "1945-present",
+      Bio: "Spheeris earn a Grammy Award nomination for her work in Wayn's World which was also her highest grossing film.",
     },
-    "Genre": {
-      "Name": "Comedy",
-      "Description": "A comedy is designed to be funny."
+    Genre: {
+      Name: "Comedy",
+      Description: "A comedy is designed to be funny.",
     },
-    "imageURL":"https://www.imdb.com/title/tt0105793/mediaviewer/rm3693806848/?ref_=tt_ov_i",
-    "Features": true
+    imageURL:
+      "https://www.imdb.com/title/tt0105793/mediaviewer/rm3693806848/?ref_=tt_ov_i",
+    Features: true,
   },
   {
-    "Title": "Aliens",
-    "Director": {
-      "Name": "James Cameron",
-      "Birth": "1954-present",
-      "Bio": "James Cameron is a filmmaker from Canada. He has made many popular Sci-Fi films"
+    Title: "Aliens",
+    Director: {
+      Name: "James Cameron",
+      Birth: "1954-present",
+      Bio: "James Cameron is a filmmaker from Canada. He has made many popular Sci-Fi films",
     },
-    "Genre": {
-      "Name": "Thriller",
-      "Description": "Thrillers invoke feelings of suspense, anticiation, and anxiety."
+    Genre: {
+      Name: "Thriller",
+      Description:
+        "Thrillers invoke feelings of suspense, anticiation, and anxiety.",
     },
-    "imageURL":"https://www.imdb.com/title/tt0090605/mediaviewer/rm490960896/?ref_=tt_ov_i",
-    "Features": true
+    imageURL:
+      "https://www.imdb.com/title/tt0090605/mediaviewer/rm490960896/?ref_=tt_ov_i",
+    Features: true,
   },
   {
-    "Title": "Robin Hood: Prince of Thieves",
-    "Director": {
-      "Name": "Kevin Reynolds",
-      "Birth": "1952-present",
-      "Bio": "Reynolds started his career by co-writing Red Dawn in 1984, and gave Samuel L. Jackson his first role in One Eight Seven."
+    Title: "Robin Hood: Prince of Thieves",
+    Director: {
+      Name: "Kevin Reynolds",
+      Birth: "1952-present",
+      Bio: "Reynolds started his career by co-writing Red Dawn in 1984, and gave Samuel L. Jackson his first role in One Eight Seven.",
     },
-    "Genre": {
-      "Name": "Action",
-      "Description": "Action usually has events that include violence and distruction."
+    Genre: {
+      Name: "Action",
+      Description:
+        "Action usually has events that include violence and distruction.",
     },
-    "imageURL":"https://www.imdb.com/title/tt0102798/mediaviewer/rm1060182529/?ref_=tt_ov_i",
-    "Features": true
+    imageURL:
+      "https://www.imdb.com/title/tt0102798/mediaviewer/rm1060182529/?ref_=tt_ov_i",
+    Features: true,
   },
   {
-    "Title": "Yes Man",
-    "Director": {
-      "Name": "Peyton Reed",
-      "Birth": "1964-present",
-      "Bio": "Reed's first director roll was for Bring it on and more recently directed Ant-Man and the Wasp."
+    Title: "Yes Man",
+    Director: {
+      Name: "Peyton Reed",
+      Birth: "1964-present",
+      Bio: "Reed's first director roll was for Bring it on and more recently directed Ant-Man and the Wasp.",
     },
-    "Genre": {
-      "Name": "Comedy",
-      "Description": "A comedy is designed to be funny."
+    Genre: {
+      Name: "Comedy",
+      Description: "A comedy is designed to be funny.",
     },
-    "imageURL":"https://www.imdb.com/title/tt1068680/mediaviewer/rm359602176/?ref_=tt_ov_i",
-    "Features": true
+    imageURL:
+      "https://www.imdb.com/title/tt1068680/mediaviewer/rm359602176/?ref_=tt_ov_i",
+    Features: true,
   },
   {
-    "Title": "The Lord of the Rings",
-    "Director": {
-      "Name": "Sir Peter Jackson",
-      "Birth": "1961-present",
-      "Bio": "Sir Peter Jackson best known work is The Lord of the Rings. He was knighted in 2002 by Sir Anand Satyanand."
+    Title: "The Lord of the Rings",
+    Director: {
+      Name: "Sir Peter Jackson",
+      Birth: "1961-present",
+      Bio: "Sir Peter Jackson best known work is The Lord of the Rings. He was knighted in 2002 by Sir Anand Satyanand.",
     },
-    "Genre": {
-      "Name": "Fantasy",
-      "Description": "Fantasy usually depicts mythology and folklore with magic."
+    Genre: {
+      Name: "Fantasy",
+      Description: "Fantasy usually depicts mythology and folklore with magic.",
     },
-    "imageURL":"https://www.imdb.com/title/tt0167260/mediaviewer/rm584928512/?ref_=tt_ov_i",
-    "Features": true
+    imageURL:
+      "https://www.imdb.com/title/tt0167260/mediaviewer/rm584928512/?ref_=tt_ov_i",
+    Features: true,
   },
   {
-    "Title": "Major Payne",
-    "Director": {
-      "Name": "Nick Castle",
-      "Birth": "1947-present",
-      "Bio": "Castle is known for playing as Michael Myers in the 1978 Halloween movie."
+    Title: "Major Payne",
+    Director: {
+      Name: "Nick Castle",
+      Birth: "1947-present",
+      Bio: "Castle is known for playing as Michael Myers in the 1978 Halloween movie.",
     },
-    "Genre": {
-      "Name": "Comedy",
-      "Description": "A comedy is designed to be funny."
+    Genre: {
+      Name: "Comedy",
+      Description: "A comedy is designed to be funny.",
     },
-    "imageURL":"https://www.imdb.com/title/tt0110443/mediaviewer/rm991907584/?ref_=tt_ov_i",
-    "Features": true
+    imageURL:
+      "https://www.imdb.com/title/tt0110443/mediaviewer/rm991907584/?ref_=tt_ov_i",
+    Features: true,
   },
   {
-    "Title": "Batman: the Dark Knight Trilogy",
-    "Director": {
-      "Name": "Christopher Nolan",
-      "Birth": "1970-present",
-      "Bio": "Nolan is a well known director that was won many awards. Some of his recent works is Dunkirk, Intersteller, and Inception."
+    Title: "Batman: the Dark Knight Trilogy",
+    Director: {
+      Name: "Christopher Nolan",
+      Birth: "1970-present",
+      Bio: "Nolan is a well known director that was won many awards. Some of his recent works is Dunkirk, Intersteller, and Inception.",
     },
-    "Genre": {
-      "Name": "Action",
-      "Description": "Action usually has events that include violence and distruction."
+    Genre: {
+      Name: "Action",
+      Description:
+        "Action usually has events that include violence and distruction.",
     },
-    "imageURL":"https://www.imdb.com/title/tt0372784/mediaviewer/rm2827249920/?ref_=tt_ov_i",
-    "Features": true
-  }
+    imageURL:
+      "https://www.imdb.com/title/tt0372784/mediaviewer/rm2827249920/?ref_=tt_ov_i",
+    Features: true,
+  },
 ];
 
-let users =[
+let users = [
   {
     id: 1,
     name: "Mary",
-    favoriteMovies: []
+    favoriteMovies: [],
   },
   {
     id: 2,
     name: "John",
-    favoriteMovies: [
-      "The Fountain"
-    ]
-  }
-
+    favoriteMovies: ["The Fountain"],
+  },
 ];
 
 // GET requests
@@ -248,18 +259,19 @@ app.post("/users", (req, res) => {
       if (user) {
         return res.status(400).send(req.body.Username + "already exists");
       } else {
-        Users 
-          .create({
-            Username: req.body.Username,
-            Password: req.body.Password,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday
-          })
-          .then((user) => {res.status(201).json(user)})
-        .catch((error) => {
-          console.error(error);
-          res.status(500).send("Error: " + error);
+        Users.create({
+          Username: req.body.Username,
+          Password: req.body.Password,
+          Email: req.body.Email,
+          Birthday: req.body.Birthday,
         })
+          .then((user) => {
+            res.status(201).json(user);
+          })
+          .catch((error) => {
+            console.error(error);
+            res.status(500).send("Error: " + error);
+          });
       }
     })
     .catch((error) => {
@@ -269,17 +281,20 @@ app.post("/users", (req, res) => {
 });
 
 //CREATE add movies to users list
-app.post("/users/:id/:movieTitle", (req, res) => {
-  const { id, movieTitle } = req.params;
-
-  let user = users.find(user => user.id == id);
-
-  if (user) {
-    user.favoriteMovies.push(movieTitle);
-    res.status(200).send(`${movieTitle} has been added to user ${id}'s array.`);
-  } else {
-    res.status(400).send("no such user");
-  }
+app.post("/users/:id/:MovieTitle", (req, res) => {
+  Users.findOneAndUpdate(
+    { Username: req.params.id },
+    { $push: { FavoriteMovies: req.params.MovieTitle } },
+    { new: true },
+    (err, user) => {
+      if (user) {
+        res.json(user);
+      } else {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      }
+    }
+  );
 });
 
 //GET all users
@@ -308,29 +323,29 @@ app.get("/users/:Username", (req, res) => {
 
 //UPDATE
 app.put("/users/:Username", (req, res) => {
- Users.findOneAndUpdate(
-  { Usrname: req.params.Username },
-  {
-    $set: {
-      Username: req.body.Username,
-            Password: req.body.Password,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday,
+  Users.findOneAndUpdate(
+    { Usrname: req.params.Username },
+    {
+      $set: {
+        Username: req.body.Username,
+        Password: req.body.Password,
+        Email: req.body.Email,
+        Birthday: req.body.Birthday,
+      },
     },
-  },
-  { new: true },
-  (err, updatedUser) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send("Error " + err);
-    } else {
-      res.json(updatedUser);
+    { new: true },
+    (err, updatedUser) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error " + err);
+      } else {
+        res.json(updatedUser);
+      }
     }
-  }
- );
+  );
 });
 
-//DELETE movies from user's list
+//DELETE users account
 app.delete("/users/:Username", (req, res) => {
   Models.User.findOneAndRemove({ Username: req.params.Username })
     .then((user) => {
@@ -346,21 +361,21 @@ app.delete("/users/:Username", (req, res) => {
     });
 });
 
-//DELETE user accounts
+//DELETE movie from users list
 app.delete("/users/:id", (req, res) => {
   const { id } = req.params;
 
-  let user = users.find(user => user.id == id);
+  let user = users.find((user) => user.id == id);
 
   if (user) {
-    users = users.filter( user => user.id != id);
+    users = users.filter((user) => user.id != id);
     res.status(200).send(`user ${id} has been deleted.`);
   } else {
     res.status(400).send("no such user");
   }
 });
 
-//error handling 
+//error handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something broke!");
