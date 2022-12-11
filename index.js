@@ -13,7 +13,7 @@ const Users = Models.User;
 const Genres = Models.Genre;
 const Directors = Models.Director;
 
-mongoose.connect("mongodb://127.0.0.1:27017/test", {
+mongoose.connect("mongodb://127.0.0.1:27017/myFlixDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -284,7 +284,7 @@ app.post("/users", (req, res) => {
 app.post("/users/:id/:MovieTitle", (req, res) => {
   Users.findOneAndUpdate(
     { Username: req.params.id },
-    { $push: { FavoriteMovies: req.params.MovieTitle } },
+    { $push: { favoriteMovies: req.params.MovieTitle } },
     { new: true },
     (err, user) => {
       if (user) {
@@ -347,7 +347,7 @@ app.put("/users/:Username", (req, res) => {
 
 //DELETE users account
 app.delete("/users/:Username", (req, res) => {
-  Models.User.findOneAndRemove({ Username: req.params.Username })
+  Users.findOneAndRemove({ Username: req.params.Username })
     .then((user) => {
       if (!user) {
         res.status(400).send(req.params.Username + " was not found");
@@ -362,17 +362,19 @@ app.delete("/users/:Username", (req, res) => {
 });
 
 //DELETE movie from users list
-app.delete("/users/:id", (req, res) => {
-  const { id } = req.params;
-
-  let user = users.find((user) => user.id == id);
-
-  if (user) {
-    users = users.filter((user) => user.id != id);
-    res.status(200).send(`user ${id} has been deleted.`);
-  } else {
-    res.status(400).send("no such user");
-  }
+app.delete("/users/:id/:MovieTitle", (req, res) => {
+  Users.findOneAndRemove({ FavoriteMovies: req.params.MovieTitle })
+    .then((movie) => {
+      if (!movie) {
+        res.status(400).send(req.params.MovieTitle + " was not found");
+      } else {
+        res.status(200).send(req.params.MovieTitle + " was deleted");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
 });
 
 //error handling
