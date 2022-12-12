@@ -227,8 +227,8 @@ app.get("/movies/:Title", (req, res) => {
 });
 
 //READ get movie by genre
-app.get("movies/:genre/:Name", (req, res) => {
-  Genres.findOne({ Name: req.params.Name })
+app.get("movies/:genre/:genreName", (req, res) => {
+  Genres.findOne({ genreName: req.params.genreName })
     .then((genre) => {
       res.json(genre.Description);
     })

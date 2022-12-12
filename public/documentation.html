@@ -28,15 +28,14 @@
       <td>/movies</td>
       <td>GET</td>
       <td>None</td>
-      <td>A JSON object holding data about all movies</td>
+      <td>Get a list of movies that includes info on title, genre, director, image, and if it's featured</td>
     </tr>
     <tr>
       <td>Get data about a single movie by title</td>
       <td>/movies/:title</td>
       <td>GET</td>
       <td>None</td>
-      <td>A JSON object holding data about a single movie, containing
-        genre and director
+      <td>Same info as the list of movies but just one specified movie
       </td>
     </tr>
     <tr>
@@ -44,21 +43,21 @@
       <td>/movies/genre/:genreName</td>
       <td>GET</td>
       <td>None</td>
-      <td>A JSON object holding data about a single genre</td>
+      <td>Get a genre and a description of that genre</td>
     </tr>
     <tr>
       <td>Get data about a single director</td>
       <td>/movies/Director/:directorName</td>
       <td>GET</td>
       <td>None</td>
-      <td>A JSON object holding data about a director</td>
+      <td>Get info about the director including name, birth, bio</td>
     </tr>
     <tr>
       <td>Add a user</td>
       <td>/users</td>
       <td>POST</td>
       <td>A JSON object user name, and favorite movies. uuid asigned to user</td>
-      <td>A JSON object holding data about the user</td>
+      <td>A user will have a username, password, email, birthday, and a favorite movie list</td>
     </tr>
     <tr>
       <td>Add a movie to user's list</td>
