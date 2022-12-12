@@ -219,7 +219,7 @@ app.get("/movies", (req, res) => {
 app.get("/movies/:Title", (req, res) => {
   Movies.findOne({ Title: req.params.Title })
     .then((movies) => {
-      res.json(movie);
+      res.json(movies);
     })
     .catch((err) => {
       res.status(500).send("Error: " + err);
@@ -227,7 +227,7 @@ app.get("/movies/:Title", (req, res) => {
 });
 
 //READ get movie by genre
-app.get("/movies/genre/:genreName", (req, res) => {
+app.get("movies/:genre/:Name", (req, res) => {
   Genres.findOne({ Name: req.params.Name })
     .then((genre) => {
       res.json(genre.Description);
@@ -281,10 +281,10 @@ app.post("/users", (req, res) => {
 });
 
 //CREATE add movies to users list
-app.post("/users/:id/:MovieTitle", (req, res) => {
+app.post("/users/:id/:Title", (req, res) => {
   Users.findOneAndUpdate(
     { Username: req.params.id },
-    { $push: { favoriteMovies: req.params.MovieTitle } },
+    { $push: { FavoriteMovies: req.params.Title } },
     { new: true },
     (err, user) => {
       if (user) {
