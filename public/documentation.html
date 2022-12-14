@@ -40,14 +40,14 @@
     </tr>
     <tr>
       <td>Get data about a genre</td>
-      <td>/movies/genre/:genreName</td>
+      <td>/movies/genre/:Name</td>
       <td>GET</td>
       <td>None</td>
       <td>Get a genre and a description of that genre</td>
     </tr>
     <tr>
       <td>Get data about a single director</td>
-      <td>/movies/Director/:directorName</td>
+      <td>/movies/director/:Name</td>
       <td>GET</td>
       <td>None</td>
       <td>Get info about the director including name, birth, bio</td>
@@ -65,6 +65,13 @@
       <td>POST</td>
       <td>A JSON object holding data with the movie title</td>
       <td>A text message stating that the movie has been added to user's list</td>
+    </tr>
+    <tr>
+      <td>Get user by username</td>
+      <td>/users/username/:Name</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>Gets user's details(username, password, email, birthday, and a favorite movies list)</td>
     </tr>
     <tr>
       <td>update user</td>

@@ -227,10 +227,10 @@ app.get("/movies/:Title", (req, res) => {
 });
 
 //READ get movie by genre
-app.get("movies/:genre/:genreName", (req, res) => {
-  Genres.findOne({ genreName: req.params.genreName })
+app.get("/movies/genre/:Name", (req, res) => {
+  Movies.findOne({ "Genre.Name": req.params.Name })
     .then((genre) => {
-      res.json(genre.Description);
+      res.json(genre.Genre);
     })
     .catch((err) => {
       console.error(err);
@@ -239,10 +239,10 @@ app.get("movies/:genre/:genreName", (req, res) => {
 });
 
 //READ get director by name
-app.get("/movies/director/:directorName", (req, res) => {
-  Directors.findOne({ Name: req.params.Name })
+app.get("/movies/director/:Name", (req, res) => {
+  Movies.findOne({ "Director.Name": req.params.Name })
     .then((director) => {
-      res.json(director);
+      res.json(director.Director);
     })
     .catch((err) => {
       console.error(err);
@@ -310,10 +310,10 @@ app.get("/users", (req, res) => {
 });
 
 //GET user by username
-app.get("/users/:Username", (req, res) => {
-  Users.findOne({ Username: req.params.Username })
-    .then((user) => {
-      res.json(user);
+app.get("/users/:username", (req, res) => {
+  Users.findOne({ "username": req.params.username })
+    .then((User) => {
+      res.status(200).json(User);
     })
     .catch((err) => {
       console.error(err);
