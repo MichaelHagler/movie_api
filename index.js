@@ -281,17 +281,17 @@ app.post("/users", (req, res) => {
 });
 
 //CREATE add movies to users list
-app.post("/users/:id/:Title", (req, res) => {
+app.post("/users/:username/movies/:Title", (req, res) => {
   Users.findOneAndUpdate(
-    { Username: req.params.id },
+    { Username: req.params.Username },
     { $push: { FavoriteMovies: req.params.Title } },
     { new: true },
-    (err, user) => {
-      if (user) {
-        res.json(user);
-      } else {
+    (err, updatedUser) => {
+      if (err) {
         console.error(err);
         res.status(500).send("Error: " + err);
+      } else {
+        res.json(updatedUser);
       }
     }
   );
@@ -311,7 +311,7 @@ app.get("/users", (req, res) => {
 
 //GET user by username
 app.get("/users/:username", (req, res) => {
-  Users.findOne({ "username": req.params.username })
+  Users.findOne({ username: req.params.username })
     .then((User) => {
       res.status(200).json(User);
     })
@@ -321,7 +321,7 @@ app.get("/users/:username", (req, res) => {
     });
 });
 
-//UPDATE
+//UPDATE user info
 app.put("/users/:username", (req, res) => {
   Users.findOneAndUpdate(
     { Usrname: req.params.Username },
@@ -362,20 +362,20 @@ app.delete("/users/:username", (req, res) => {
 });
 
 //DELETE movie from users list
-app.delete("/users/username/movies/:MovieTitle", (req, res) => {
+app.delete("/users/:username/movies/:Title", (req, res) => {
   Users.findOneAndUpdate(
     { Username: req.params.Username },
-    { $pull: { FavoriteMovies: req.params.MovieTitle }
-  },
-  { new: true },
-  (err, updatedUser) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    } else {
-      res.json(updatedUser);
+    { $pull: { FavoriteMovies: req.params.Title } },
+    { new: true },
+    (err, updatedUser) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      } else {
+        res.json(updatedUser);
+      }
     }
-  });
+  );
 });
 
 //error handling
