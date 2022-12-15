@@ -322,7 +322,7 @@ app.get("/users/:username", (req, res) => {
 });
 
 //UPDATE
-app.put("/users/:Username", (req, res) => {
+app.put("/users/:username", (req, res) => {
   Users.findOneAndUpdate(
     { Usrname: req.params.Username },
     {
@@ -346,7 +346,7 @@ app.put("/users/:Username", (req, res) => {
 });
 
 //DELETE users account
-app.delete("/users/:Username", (req, res) => {
+app.delete("/users/:username", (req, res) => {
   Users.findOneAndRemove({ Username: req.params.Username })
     .then((user) => {
       if (!user) {
@@ -362,19 +362,20 @@ app.delete("/users/:Username", (req, res) => {
 });
 
 //DELETE movie from users list
-app.delete("/users/:id/:MovieTitle", (req, res) => {
-  Users.findOneAndRemove({ FavoriteMovies: req.params.MovieTitle })
-    .then((movie) => {
-      if (!movie) {
-        res.status(400).send(req.params.MovieTitle + " was not found");
-      } else {
-        res.status(200).send(req.params.MovieTitle + " was deleted");
-      }
-    })
-    .catch((err) => {
+app.delete("/users/username/movies/:MovieTitle", (req, res) => {
+  Users.findOneAndUpdate(
+    { Username: req.params.Username },
+    { $pull: { FavoriteMovies: req.params.MovieTitle }
+  },
+  { new: true },
+  (err, updatedUser) => {
+    if (err) {
       console.error(err);
       res.status(500).send("Error: " + err);
-    });
+    } else {
+      res.json(updatedUser);
+    }
+  });
 });
 
 //error handling
