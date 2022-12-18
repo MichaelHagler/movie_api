@@ -1,98 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>myFlix</title>
-</head>
-<body>
-  <h1>MyFlix Documentation</h1>
-  <p>
-    Welcome to MyFlix! A server-side application that 
-    shows infromation about movies, and gives users the 
-    ability to sign up, update their personal information, 
-    and create a list of their favorite movies.
-  </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myFlix</title>
+  </head>
+  <body>
+    <h1>MyFlix Documentation</h1>
+    <p>
+      Welcome to MyFlix! A server-side application that shows infromation about
+      movies, and gives users the ability to sign up, update their personal
+      information, and create a list of their favorite movies.
+    </p>
 
-  <table>
-    <tr>
-      <th>Business Logic</th>
-      <th>URL</th>
-      <th>HTTP Method</th>
-      <th>Request body data format</th>
-      <th>Response body data format</th>
-    </tr>
-    <tr>
-      <td>Get a list of movies</td>
-      <td>/movies</td>
-      <td>GET</td>
-      <td>None</td>
-      <td>Get a list of movies that includes info on title, genre, director, image, and if it's featured</td>
-    </tr>
-    <tr>
-      <td>Get data about a single movie by title</td>
-      <td>/movies/:title</td>
-      <td>GET</td>
-      <td>None</td>
-      <td>Same info as the list of movies but just one specified movie
-      </td>
-    </tr>
-    <tr>
-      <td>Get data about a genre</td>
-      <td>/movies/genre/:Name</td>
-      <td>GET</td>
-      <td>None</td>
-      <td>Get a genre and a description of that genre</td>
-    </tr>
-    <tr>
-      <td>Get data about a single director</td>
-      <td>/movies/director/:Name</td>
-      <td>GET</td>
-      <td>None</td>
-      <td>Get info about the director including name, birth, bio</td>
-    </tr>
-    <tr>
-      <td>Add a user</td>
-      <td>/users</td>
-      <td>POST</td>
-      <td>A JSON object user name, and favorite movies. uuid asigned to user</td>
-      <td>A user will have a username, password, email, birthday, and a favorite movie list</td>
-    </tr>
-    <tr>
-      <td>Add a movie to user's list</td>
-      <td>/users/:id/:movieTitle</td>
-      <td>POST</td>
-      <td>A JSON object holding data with the movie title</td>
-      <td>A text message stating that the movie has been added to user's list</td>
-    </tr>
-    <tr>
-      <td>Get user by username</td>
-      <td>/users/:username</td>
-      <td>GET</td>
-      <td>None</td>
-      <td>Gets user's details(username, password, email, birthday, and a favorite movies list)</td>
-    </tr>
-    <tr>
-      <td>update user</td>
-      <td>/users/:username</td>
-      <td>PUT</td>
-      <td>None</td>
-      <td>A JSON oject holding the updated user's info</td>
-    </tr>
-    <tr>
-      <td>Remove a movie by title from user's list</td>
-      <td>/users/:id/:movieTitle</td>
-      <td>DELETE</td>
-      <td>None</td>
-      <td>A text message indicating the movie was successfully removed</td>
+    <table>
+      <tr>
+        <th>Business Logic</th>
+        <th>URL</th>
+        <th>HTTP Method</th>
+        <th>Request body data format</th>
+        <th>Response body data format</th>
+      </tr>
+      <tr>
+        <td>Get a list of movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>
+          Get a list of movies that includes info on title, genre, director,
+          image, and if it's featured
+        </td>
+      </tr>
+      <tr>
+        <td>Get data about a single movie by title</td>
+        <td>/movies/:Title</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>Same info as the list of movies but just one specified movie</td>
+      </tr>
+      <tr>
+        <td>Get data about a genre</td>
+        <td>/movies/genre/:Name</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>Get a genre and a description of that genre</td>
+      </tr>
+      <tr>
+        <td>Get data about a single director</td>
+        <td>/movies/director/:Name</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>Get info about the director including name, birth, bio</td>
+      </tr>
+      <tr>
+        <td>Add a user</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>
+          A JSON object user name, and favorite movies. uuid asigned to user
+        </td>
+        <td>
+          A user will have a username, password, email, birthday, and a favorite
+          movie list
+        </td>
+      </tr>
+      <tr>
+        <td>Add a movie to user's list</td>
+        <td>/users/:username/movies/:Title</td>
+        <td>POST</td>
+        <td>A JSON object holding data with the movie title</td>
+        <td>
+          A text message stating that the movie has been added to user's list
+        </td>
+      </tr>
+      <tr>
+        <td>Get user by username</td>
+        <td>/users/:username</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>
+          Gets user's details(username, password, email, birthday, and a
+          favorite movies list)
+        </td>
+      </tr>
+      <tr>
+        <td>update user</td>
+        <td>/users/:username</td>
+        <td>PUT</td>
+        <td>None</td>
+        <td>A JSON oject holding the updated user's info</td>
+      </tr>
+      <tr>
+        <td>Remove a movie by title from user's list</td>
+        <td>/users/:username/movies/:Title</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message indicating the movie was successfully removed</td>
+      </tr>
       <tr>
         <td>Remove user</td>
-        <td>/users/:id</td>
+        <td>/users/:username</td>
         <td>DELETE</td>
         <td>None</td>
         <td>A text message indicating the user has been removed</td>
-  </table>
-  
-</body>
+      </tr>
+    </table>
+  </body>
 </html>

@@ -228,7 +228,7 @@ app.get("/movies/:Title", (req, res) => {
 
 //READ get movie by genre
 app.get("/movies/genre/:Name", (req, res) => {
-  Movies.findOne({ "Genre.Name": req.params.Name })
+  Movies.findOne({ "genre.Name": req.params.Name })
     .then((genre) => {
       res.json(genre.Genre);
     })
@@ -240,7 +240,7 @@ app.get("/movies/genre/:Name", (req, res) => {
 
 //READ get director by name
 app.get("/movies/director/:Name", (req, res) => {
-  Movies.findOne({ "Director.Name": req.params.Name })
+  Movies.findOne({ "director.Name": req.params.Name })
     .then((director) => {
       res.json(director.Director);
     })
@@ -254,16 +254,16 @@ app.get("/movies/director/:Name", (req, res) => {
 
 //CREATE user
 app.post("/users", (req, res) => {
-  Users.findOne({ Username: req.body.Username })
+  Users.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
-        return res.status(400).send(req.body.Username + "already exists");
+        return res.status(400).send(req.body.username + "already exists");
       } else {
         Users.create({
-          Username: req.body.Username,
-          Password: req.body.Password,
-          Email: req.body.Email,
-          Birthday: req.body.Birthday,
+          username: req.body.username,
+          password: req.body.password,
+          email: req.body.email,
+          birth_date: req.body.birth_date,
         })
           .then((user) => {
             res.status(201).json(user);
@@ -283,7 +283,7 @@ app.post("/users", (req, res) => {
 //CREATE add movies to users list
 app.post("/users/:username/movies/:Title", (req, res) => {
   Users.findOneAndUpdate(
-    { Username: req.params.Username },
+    { username: req.params.username },
     { $push: { FavoriteMovies: req.params.Title } },
     { new: true },
     (err, updatedUser) => {
@@ -324,13 +324,13 @@ app.get("/users/:username", (req, res) => {
 //UPDATE user info
 app.put("/users/:username", (req, res) => {
   Users.findOneAndUpdate(
-    { Usrname: req.params.Username },
+    { username: req.params.username },
     {
       $set: {
-        Username: req.body.Username,
-        Password: req.body.Password,
-        Email: req.body.Email,
-        Birthday: req.body.Birthday,
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
+        birth_date: req.body.birth_date,
       },
     },
     { new: true },
@@ -347,12 +347,12 @@ app.put("/users/:username", (req, res) => {
 
 //DELETE users account
 app.delete("/users/:username", (req, res) => {
-  Users.findOneAndRemove({ Username: req.params.Username })
+  Users.findOneAndRemove({ username: req.params.username })
     .then((user) => {
       if (!user) {
-        res.status(400).send(req.params.Username + " was not found");
+        res.status(400).send(req.params.username + " was not found");
       } else {
-        res.status(200).send(req.params.Username + " was deleted.");
+        res.status(200).send(req.params.username + " was deleted.");
       }
     })
     .catch((err) => {
@@ -364,7 +364,7 @@ app.delete("/users/:username", (req, res) => {
 //DELETE movie from users list
 app.delete("/users/:username/movies/:Title", (req, res) => {
   Users.findOneAndUpdate(
-    { Username: req.params.Username },
+    { username: req.params.username },
     { $pull: { FavoriteMovies: req.params.Title } },
     { new: true },
     (err, updatedUser) => {
