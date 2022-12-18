@@ -208,7 +208,7 @@ app.get("/", (req, res) => {
 //--------MOVIES---------
 
 // READ get all movies
-app.get("/movies", (req, res) => {
+app.get("/movies", passport.authenticate("jwt", { session: false }), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -261,7 +261,7 @@ app.post("/users", (req, res) => {
   Users.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
-        return res.status(400).send(req.body.username + "already exists");
+        return res.status(400).send(req.body.username + " already exists");
       } else {
         Users.create({
           username: req.body.username,
