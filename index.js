@@ -3,6 +3,7 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   uuid = require("uuid");
 
+const cors = require("cors");
 const morgan = require("morgan");
 const app = express();
 const mongoose = require("mongoose");
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(morgan("common"));
+app.use(cors());
 
 let auth = require("./auth")(app);
 
