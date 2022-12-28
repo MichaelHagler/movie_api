@@ -115,7 +115,6 @@ app.post(
     check("password", "password is required").not().isEmpty(),
     check("email", "email does not appear to be valid").isEmail(),
   ],
-  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     let errors = validationResult(req);
 
