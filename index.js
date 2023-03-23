@@ -1,5 +1,3 @@
-
-
 //express
 const express = require("express"),
   bodyParser = require("body-parser"),
@@ -247,7 +245,7 @@ app.put(
           console.error(err);
           res.status(500).send("Error " + err);
         } else {
-          res.json(updatedUser);
+          res.status(201).json(updatedUser);
         }
       }
     );
