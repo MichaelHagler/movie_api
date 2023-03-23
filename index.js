@@ -198,8 +198,8 @@ app.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Users.findOne({ username: req.params.username })
-      .then((User) => {
-        res.status(200).json(User);
+      .then((user) => {
+        res.status(200).json(user);
       })
       .catch((err) => {
         console.error(err);
@@ -246,6 +246,7 @@ app.put(
           res.status(500).send("Error " + err);
         } else {
           res.status(201).json(updatedUser);
+          return(updatedUser);
         }
       }
     );
