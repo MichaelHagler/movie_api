@@ -66,7 +66,7 @@ app.get(
 // READ get movie by title
 
 /**
- * 
+ *
  */
 app.get(
   "/movies/:Title",
@@ -120,7 +120,9 @@ app.get(
 app.post(
   "/users",
   [
-    check("username", "username must be at least 3 characters long.").isLength({ min: 3 }),
+    check("username", "username must be at least 3 characters long.").isLength({
+      min: 3,
+    }),
     check(
       "username",
       "username contains non alphanumeric charcters - not allowed."
@@ -220,7 +222,9 @@ app.get(
 app.put(
   "/users/:username",
   [
-    check("username", "username must be at least 5 characters long.").isLength({ min: 5 }),
+    check("username", "username must be at least 5 characters long.").isLength({
+      min: 5,
+    }),
     check(
       "username",
       "username contains non alphanumeric charcters - not allowed."
@@ -254,7 +258,7 @@ app.put(
           res.status(500).send("Error " + err);
         } else {
           res.status(201).json(updatedUser);
-          return(updatedUser);
+          return updatedUser;
         }
       }
     );
@@ -262,26 +266,30 @@ app.put(
 );
 
 //User can add a movie to their favorites
-app.post('/users/:username/movies/:MovieID', passport.authenticate('jwt', { session: false }),(req, res) => {
-  Users.findOneAndUpdate(
-    { username: req.params.username },
-    {
-      $addToSet: { FavoriteMovies: req.params.MovieID }
-    },
-    { new: true } //This line makes sure the updated document is returned
-  )
-    .then((updatedUser) => {
-      if (!updatedUser) {
-        return res.status(404).send("Error: User doesn't exist");
-      } else {
-        res.json(updatedUser);
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      res.status(500).send('Error: ' + error);
-    });
-});
+app.post(
+  "/users/:username/movies/:Title",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Users.findOneAndUpdate(
+      { username: req.params.username },
+      {
+        $addToSet: { FavoriteMovies: req.params.Title},
+      },
+      { new: true }
+    )
+      .then((updatedUser) => {
+        if (!updatedUser) {
+          return res.status(404).send("Error: User doesn't exist");
+        } else {
+          res.json(updatedUser);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).send("Error: " + error);
+      });
+  }
+);
 
 //DELETE users account
 app.delete(
