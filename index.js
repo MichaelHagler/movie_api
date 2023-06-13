@@ -44,6 +44,10 @@ app.get("/", (req, res) => {
 //--------MOVIES---------
 
 // READ get all movies
+/**
+ * @param {string} res gets all movies
+ * @returns {string} movies gets all movies
+ */
 app.get(
   "/movies",
   passport.authenticate("jwt", { session: false }),
@@ -60,6 +64,10 @@ app.get(
 );
 
 // READ get movie by title
+
+/**
+ * 
+ */
 app.get(
   "/movies/:Title",
   passport.authenticate("jwt", { session: false }),
@@ -252,6 +260,28 @@ app.put(
     );
   }
 );
+
+//User can add a movie to their favorites
+app.post('/users/:username/movies/:MovieID', passport.authenticate('jwt', { session: false }),(req, res) => {
+  Users.findOneAndUpdate(
+    { username: req.params.username },
+    {
+      $addToSet: { FavoriteMovies: req.params.MovieID }
+    },
+    { new: true } //This line makes sure the updated document is returned
+  )
+    .then((updatedUser) => {
+      if (!updatedUser) {
+        return res.status(404).send("Error: User doesn't exist");
+      } else {
+        res.json(updatedUser);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    });
+});
 
 //DELETE users account
 app.delete(
